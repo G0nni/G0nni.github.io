@@ -7,15 +7,17 @@
 
   <body>
     <div class="image">
-      <img alt="fem" src="ff.webp" />
+      <img alt="fem" src="./images/ff.webp" />
     </div>
     <nav>
+      <p class="HomeHeader_Title">Bienvenue Gonni !</p>
       <div class="HomeHeader_Time">
         <div class="hour" id="currentTime">
           <div class="time" id="currentTime"></div>
         </div>
         <div class="day" id="currentDate"></div>
       </div>
+
       <div class="HomeContent_SearchBar">
         <form action="https://google.com/search" method="get">
           <input
@@ -30,40 +32,22 @@
       </div>
 
       <div class="containerUL">
-        <div>
+        <div class="active">
           <p>Home</p>
-          <ul>
-            <li><a href="https://gmail.com/">Gmail</a></li>
-            <li><a href="https://facebook.com/messages/t">Messenger</a></li>
-            <li><a href="https://youtube.com">YouTube</a></li>
-            <li><a href="https://twitch.tv">Twitch</a></li>
+          <ul class="show">
+            <li><a href="https://www.youtube.com" data-hover="Youtube"><image class="logoItem" src="https://logo.clearbit.com/youtube.com" alt="Youtube"></a></li>
+            <li><a href="https://www.crunchyroll.com" data-hover="Crunchyroll"><image class="logoItem" src="https://logo.clearbit.com/crunchyroll.com" alt="Crunchyroll"></a></li>
+            <li><a href="https://www.mangacollec.com" data-hover="Mangacollec"><image class="logoItem" src="https://logo.clearbit.com/mangacollec.com" alt="Mangacollec"></a></li>
+            <li><a href="https://bsky.app" data-hover="BlueSky"><image class="logoItem" src="https://logo.clearbit.com/bsky.app" alt="BlueSky"></a></li>
+            <li><a href="https://www.twitch.tv" data-hover="Twitch"><image class="logoItem" src="https://logo.clearbit.com/twitch.tv" alt="Twitch"/></a></li>
           </ul>
         </div>
         <div>
-          <p>dev</p>
+          <p>Dev</p>
           <ul>
-            <li><a href="https://aur.archlinux.org/">AUR</a></li>
-            <li><a href="https://github.com/f1rq">GitHub</a></li>
-            <li><a href="https://github.com/f1rq/dotfiles">Dots</a></li>
-            <li><a href="https://svelte.dev/">Svelte</a></li>
-            <li>
-              <a href="https://tailwindcss.com/docs/installation">Tailwind</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <p>school</p>
-          <ul>
-            <li><a href="https://notion.so">Notion</a></li>
-          </ul>
-        </div>
-        <div>
-          <p>general</p>
-          <ul>
-            <li><a href="https://gmail.com/">Gmail</a></li>
-            <li><a href="https://facebook.com/messages/t">Messenger</a></li>
-            <li><a href="https://youtube.com">YouTube</a></li>
-            <li><a href="https://twitch.tv">Twitch</a></li>
+            <li><a href="https://github.com/G0nni" data-hover="Github"><image class="logoItem" src="https://logo.clearbit.com/github.com" alt="Github"></a></li>
+            <li><a href="https://remix.run/docs" data-hover="Remix"><image class="logoItem" src="https://logo.clearbit.com/remix.run" alt="Remix"></a></li>
+            <li><a href="https://nextjs.org/docs" data-hover="NextJS"><image class="logoItem" src="https://logo.clearbit.com/nextjs.org" alt="NextJS"></a></li>
           </ul>
         </div>
       </div>
@@ -82,10 +66,25 @@
         }
       });
 
-      // Show or hide the clicked list
-      item.querySelector("ul").classList.toggle("show");
+      // Show the clicked list if it's not already shown
+      const clickedList = item.querySelector("ul");
+      if (!clickedList.classList.contains("show")) {
+        clickedList.classList.add("show");
+      }
     });
   });
+
+  document.querySelectorAll(".containerUL > div").forEach((item) => {
+  item.addEventListener("click", (event) => {
+    // Remove active class from all items
+    document.querySelectorAll(".containerUL > div").forEach((div) => {
+      div.classList.remove("active");
+    });
+
+    // Add active class to the clicked item
+    item.classList.add("active");
+  });
+});
 
   function updateTimeAndDate() {
     var now = new Date();
@@ -93,9 +92,9 @@
     var minutes = now.getMinutes();
     var seconds = now.getSeconds();
     var currentTime =
-      hours +
+      (hours < 10 ? "0" + hours : hours ) +
       ":" +
-      minutes +
+      (minutes < 10 ? "0" + minutes : minutes ) +
       '<span class="seconds">' +
       (seconds < 10 ? "0" + seconds : seconds) +
       "</span>";

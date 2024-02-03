@@ -51,12 +51,21 @@ nav {
 
 .containerUL > div {
   width: 100%;
-  background: rgba(30, 30, 30, 0.6);
+  background: rgba(30, 30, 30, 0.5);
   border-radius: 10px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.containerUL > div.active {
+  background: rgba(
+    30,
+    30,
+    30,
+    0.8
+  ); /* Changez ceci à la couleur que vous voulez pour l'état actif */
 }
 
 .containerUL > div > p {
@@ -87,10 +96,50 @@ nav {
   height: 60px;
   width: 60px;
   border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.containerUL > div > ul > li:hover {
+  background: rgba(30, 30, 30, 0.8);
+  transform: scale(1.2);
+}
+
+.containerUL > div > ul > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.containerUL > div > ul > li > a > .logoItem {
+  height: 40px;
+  width: 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: none;
 }
 
 .containerUL > div > ul.show {
   display: flex;
+}
+
+.containerUL li a::after {
+  content: attr(data-hover);
+  display: none;
+  position: absolute;
+
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  top: 60px;
+  font-size: 14px;
+  font-style: normal;
+  font-family: "Monaspace Neon";
+}
+
+.containerUL li a:hover::after {
+  display: block;
 }
 
 h1 {
