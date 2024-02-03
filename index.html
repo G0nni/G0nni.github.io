@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gonni's Homepage</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <div class="image">
+      <img alt="fem" src="ff.webp" />
+    </div>
+    <nav>
+      <div class="HomeHeader_Time">
+        <div class="hour" id="currentTime">
+          <div class="time" id="currentTime"></div>
+        </div>
+        <div class="day" id="currentDate"></div>
+      </div>
+      <div class="HomeContent_SearchBar">
+        <form action="https://google.com/search" method="get">
+          <input
+            class="searchbar"
+            type="text"
+            name="q"
+            placeholder="Rechercher sur le web..."
+            autocomplete="off"
+            required
+          />
+        </form>
+      </div>
+
+      <div class="containerUL">
+        <div>
+          <p>Home</p>
+          <ul>
+            <li><a href="https://gmail.com/">Gmail</a></li>
+            <li><a href="https://facebook.com/messages/t">Messenger</a></li>
+            <li><a href="https://youtube.com">YouTube</a></li>
+            <li><a href="https://twitch.tv">Twitch</a></li>
+          </ul>
+        </div>
+        <div>
+          <p>dev</p>
+          <ul>
+            <li><a href="https://aur.archlinux.org/">AUR</a></li>
+            <li><a href="https://github.com/f1rq">GitHub</a></li>
+            <li><a href="https://github.com/f1rq/dotfiles">Dots</a></li>
+            <li><a href="https://svelte.dev/">Svelte</a></li>
+            <li>
+              <a href="https://tailwindcss.com/docs/installation">Tailwind</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p>school</p>
+          <ul>
+            <li><a href="https://notion.so">Notion</a></li>
+          </ul>
+        </div>
+        <div>
+          <p>general</p>
+          <ul>
+            <li><a href="https://gmail.com/">Gmail</a></li>
+            <li><a href="https://facebook.com/messages/t">Messenger</a></li>
+            <li><a href="https://youtube.com">YouTube</a></li>
+            <li><a href="https://twitch.tv">Twitch</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>
+
+<script>
+  document.querySelectorAll(".containerUL > div").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      // Hide all other lists
+      document.querySelectorAll(".containerUL > div > ul").forEach((ul) => {
+        if (ul !== item.querySelector("ul")) {
+          ul.classList.remove("show");
+        }
+      });
+
+      // Show or hide the clicked list
+      item.querySelector("ul").classList.toggle("show");
+    });
+  });
+
+  function updateTimeAndDate() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+    var currentTime =
+      hours +
+      ":" +
+      minutes +
+      '<span class="seconds">' +
+      (seconds < 10 ? "0" + seconds : seconds) +
+      "</span>";
+
+    var currentDate = now.toLocaleDateString("fr-FR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+
+    document.getElementById("currentTime").innerHTML = currentTime;
+    document.getElementById("currentDate").textContent = currentDate;
+  }
+
+  updateTimeAndDate();
+  setInterval(updateTimeAndDate, 1000);
+</script>
