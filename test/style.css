@@ -1,0 +1,281 @@
+@font-face {
+  font-family: "Font";
+  src: url("./MonaspaceNeon-Regular.otf");
+}
+
+html {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  color: #ffffff;
+  /* background: linear-gradient(180deg, #3a5379 0%, #0e0e0e 100%); */
+  background: linear-gradient(180deg, #38419e 0%, #04050c 100%);
+  /* background: #1c283a; */
+  margin-right: 9em;
+  padding: 1em;
+  font-family: Font;
+  gap: 2em;
+}
+
+img {
+  height: 600px;
+  width: 350px;
+  object-fit: cover;
+  margin-right: 2em;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+nav {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.containerUL {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
+  width: 500px;
+  position: relative;
+}
+
+.containerUL > div {
+  width: 100%;
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerUL > div.active {
+  background: rgba(
+    30,
+    30,
+    30,
+    0.8
+  ); /* Changez ceci à la couleur que vous voulez pour l'état actif */
+}
+
+.containerUL > div > p {
+  cursor: pointer;
+  font-size: 1em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.containerUL > div > ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  list-style-type: none;
+  text-align: center;
+  gap: 1em;
+  margin-top: 20px;
+}
+
+.containerUL > div > ul > li {
+  margin-left: 0;
+  background: rgba(30, 30, 30, 0.6);
+  height: 60px;
+  width: 60px;
+  border-radius: 10px;
+  transition: all 0.1s ease-in-out;
+}
+
+.containerUL > div > ul > li:hover {
+  background: rgba(30, 30, 30, 0.8);
+  transform: scale(1.2);
+}
+
+.containerUL > div > ul > li > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.containerUL > div > ul > li > a > .logoItem {
+  height: 40px;
+  width: 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: none;
+  object-fit: cover;
+}
+
+.containerUL > div > ul.show {
+  display: flex;
+}
+
+.containerUL li a::after {
+  content: attr(data-hover);
+  display: none;
+  position: absolute;
+
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  top: 60px;
+  font-size: 14px;
+  font-style: normal;
+  font-family: "Monaspace Neon";
+}
+
+.containerUL li a:hover::after {
+  display: block;
+}
+
+h1 {
+  font-size: 2.2em;
+  font-weight: 600;
+  grid-column: 1/-1;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #c5c5c5;
+  grid-column: 1/-1;
+  text-align: center;
+  margin-bottom: 2.3em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  list-style-type: none;
+}
+
+li {
+  line-height: 1.4em;
+  margin-left: 4.8em;
+}
+
+a {
+  color: #c5c5c5;
+  font-size: 1.1em;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5e5e5e;
+  font-style: italic;
+}
+
+.HomeContent_SearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(30, 30, 30, 0.5);
+}
+
+.HomeContent_SearchBar:hover {
+  background: rgba(30, 30, 30, 0.6);
+}
+
+.HomeContent_SearchBar form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+.HomeContent_SearchBar form:focus-within {
+  box-shadow: 0 0 0 1px #fffdfa;
+  border-radius: 10px;
+}
+
+.HomeContent_SearchBar .searchbar {
+  color: #fffdfa;
+  font-family: "Monaspace Neon";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.HomeContent_SearchBar .searchbar::placeholder {
+  color: #fffdfa;
+  font-family: "Monaspace Neon";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.HomeContent_SearchBar .searchBtn {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.HomeContent_SearchBar .searchBtn:hover {
+  background-color: rgba(30, 30, 30, 0.6);
+}
+
+.HomeHeader_Time {
+  display: flex;
+  flex-direction: column;
+  /* background-color: #642020; */
+  width: 600px;
+}
+.HomeHeader_Time .hour {
+  color: #fffdfa;
+  text-align: center;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.HomeHeader_Time .day {
+  position: relative;
+  color: #fffdfa;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  top: -10px;
+}
+.HomeHeader_Time .hour .seconds {
+  padding-left: 10px;
+  font-size: 0.3em;
+}
