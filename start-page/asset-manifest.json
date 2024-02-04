@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d2fd126c.css",
+    "main.js": "/static/js/main.220f82c6.js",
+    "static/js/787.bf14e485.chunk.js": "/static/js/787.bf14e485.chunk.js",
+    "static/media/soso_no_frieren.jpg": "/static/media/soso_no_frieren.d1b5a441c203da09ad62.jpg",
+    "static/media/MonaspaceNeon-Regular.otf": "/static/media/MonaspaceNeon-Regular.4011fcc03b327841b973.otf",
+    "index.html": "/index.html",
+    "main.d2fd126c.css.map": "/static/css/main.d2fd126c.css.map",
+    "main.220f82c6.js.map": "/static/js/main.220f82c6.js.map",
+    "787.bf14e485.chunk.js.map": "/static/js/787.bf14e485.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2fd126c.css",
+    "static/js/main.220f82c6.js"
+  ]
+}
